@@ -42,11 +42,23 @@ console.log(typeof age);
 
 function sum(a, b) { console.log(`result: ${a + b}`) };
 
-function iam(name, age) { console.log (`My name is ${name} and my age is ${age} years`)};
-
 sum(1, 2);
 
-iam( `Voldemar`, 42);
+function iam(name, age) { console.log (`My name is ${name} and my age is ${age} years`)};
+
+iam(`Voldemar`, 42);
+
+function sumToFixed(a, b) {
+    return (a / b).toFixed(1);
+};
+
+console.log(sumToFixed(9, 8));
+
+function sumToFixedTwo(a, b, c) { 
+    return (a / b * c).toFixed(3);
+};
+
+console.log(sumToFixedTwo(2, 9, 5));
 
 // 6. Оголосити змінну isStudent і присвоїти їй значення true або false.
 
@@ -79,10 +91,10 @@ console.log(getShippingMessage("Germany", 80, 20)); // "Shipping to Germany will
 console.log(getShippingMessage("Sweden", 100, 20)); // "Shipping to Sweden will cost 120 credits"
 
 function getElementWidth(content, padding, border) { 
-    const contentNun = Number(content);
-    const paddingNum = Number(padding);
-    const borderNum = Number(border);
-    return content + 2 * padding + 2*border;
+    const contentNun = Number.parseInt(content);
+    const paddingNum = Number.parseInt(padding);
+    const borderNum = Number.parseInt(border);
+    return contentNun + 2 * paddingNum + 2*borderNum;
 }; 
 
 console.log(getElementWidth("50px", "8px", "4px")); // 74
@@ -99,11 +111,49 @@ console.log(car)
 // 9. Створити функцію printObject, яка приймає об’єкт і виводить його властивості.
 
 // 10. Оголосити масив numbers із кількома числами.
+
+const numbers = [1, 2, 3, 4];
+
+console.log(numbers);
+
 // 11. Написати функцію getMax, яка приймає масив чисел і повертає найвище.
 // 12. Створити функцію isEven, яка приймає число і повертає true, якщо число парне.
+
+function isEven(number) { 
+    return Boolean(number/2==(number/2).toFixed(0))
+};
+
+console.log(isEven(3));
+console.log(isEven(8));
+console.log(isEven(16));
+console.log(isEven(35));
+
+function isEven2(number) { 
+    return number % 2 === 0;
+}
+
+console.log(isEven2(3));
+console.log(isEven2(8));
+console.log(isEven2(2216));
+console.log(isEven2(35));
+
 // 13. Оголосити змінну message і присвоїти їй рядкове значення.
+const message = `It's my message`;
+
+console.log(typeof message);
+
 // 14. Створити функцію reverseString, яка повертає зворотній рядок.
 // 15. Створити функцію calculateArea, яка приймає радіус і повертає площу кола.
+ 
+function calculateArea(r) {
+    const pi= 3.1415926
+    return (pi * r**2).toFixed(2);
+}
+
+console.log(calculateArea(4));
+console.log(calculateArea(6));
+console.log(calculateArea(10));
+
 // 16. Зробити умову, що якщо age ≥ 65, вивести "Ви пенсіонер", інакше — "Ви ще працюєте".
 // 17. Створити функцію fizzBuzz, яка приймає число і виводить "Fizz" або "Buzz" відповідно.
 // 18. Оголосити змінну isLoggedIn і встановити її у false, потім написати функцію login.
@@ -114,6 +164,13 @@ console.log(car)
 // 23. Створити функцію isPrime, яка перевіряє, чи число — просте.
 // 24. Написати функцію capitalize, яка робить першу літеру рядка великою.
 // 25. Створити функцію calculateTip, яка обчислює чайові (процент від суми).
+
+function calculateTip(check, tip) {
+    return `Your tips from the restaurant check are ${(check*tip/100).toFixed(2)}$`
+};
+
+console.log(calculateTip(120,15));
+
 // 26. Оголосити змінну currentTime і отримати поточний час.
 // 27. Написати функцію daysBetween, яка рахує кількість днів між двома датами.
 // 28. Створити масив з іменами і записати функцію greetAll, яка привітає всіх.
