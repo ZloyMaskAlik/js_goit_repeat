@@ -44,7 +44,38 @@ function leapYear(year) {
 
 console.log(leapYear(1800));
 console.log(leapYear(2000));
-console.log(leapYear(1997))
+console.log(leapYear(1997));
+console.log(leapYear(1979))
+
+// 5.Визначити день тижня за датою, формат дати(день.місяць.рік).
+function weekDay(date) {
+    console.log(typeof (date))
+    let day = date.slice(0, 2);
+    let month = date.slice(3, 5);
+    let year = date.slice(6, 10);
+    let a =Number.parseInt((14 - month) / 12);
+    let y = (year - a);
+    let m = month + (12 * a) - 2;
+    let weekDay = Number.parseInt((day + y + (y / 4) - (y / 100) + (y / 400) + (31 * m) / 12) % 7);
+    console.log(weekDay);
+    return `${day}.${month}.${year}`
+}
+console.log(weekDay(`12.01.1979`));
+
+
+function weekDay2(year, month, day) {
+    year = parseInt(year, 10);
+    month = parseInt(month, 10);
+    day = parseInt(day, 10);
+    if (month < 3) {
+        --year;
+        month += 10;
+    } else
+        month -= 2;
+    return (day + 31 * month / 12 + year + year / 4 - year / 100 + year / 400) % 7;
+}; 
+
+console.log(weekDay2( 1979, 1, 12));
 
 // 6.Визначити, чи символ є літерою англійської abетки.
 // 7.Порахувати кількість днів у місяці (залежно від місяця та року).
