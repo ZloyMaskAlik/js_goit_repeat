@@ -48,8 +48,8 @@ console.log(leapYear(1997));
 console.log(leapYear(1979))
 
 // 5.Визначити день тижня за датою, формат дати(день.місяць.рік).
+
 function weekDay(date) {
-    console.log(typeof (date))
     let day = date.slice(0, 2);
     let month = date.slice(3, 5);
     let year = date.slice(6, 10);
@@ -58,27 +58,38 @@ function weekDay(date) {
     let m = month + (12 * a) - 2;
     let weekDay = Number.parseInt((day + y + (y / 4) - (y / 100) + (y / 400) + (31 * m) / 12) % 7);
     console.log(weekDay);
-    return `${day}.${month}.${year}`
+    if (weekDay === 0) {
+        return `Your birthday is Monday`
+    } else if ( weekDay === 1) {
+        return `Your birthday is Theterday`
+    } else if ( weekDay === 2) {
+        return `Your birthday is Wednesday `
+    } else if ( weekDay === 3) {
+        return `Your birthday is Thursday`
+    } else if ( weekDay === 4) {
+        return `Your birthday is Friday`
+    } else if ( weekDay === 5) {
+        return `Your birthday is Saturday`
+    }
+    return `Your birthday is Sunday`
 }
 console.log(weekDay(`12.01.1979`));
+console.log(weekDay(`05.06.2025`));
 
+// 6.Визначити, чи символ є літерою англійської aбетки.
+function englishLetter(letter) {
+return /[a-z]i/.match(letter) ? `Your letter ${letter} is letter of english alphabet`: `Your letter ${letter} isn't letter of english alphabet`
+}
+ 
+console.log(englishLetter(`a`));
+console.log(englishLetter(`A`));
+console.log(englishLetter(`9`));
+console.log(englishLetter(`а`));
 
-function weekDay2(year, month, day) {
-    year = parseInt(year, 10);
-    month = parseInt(month, 10);
-    day = parseInt(day, 10);
-    if (month < 3) {
-        --year;
-        month += 10;
-    } else
-        month -= 2;
-    return (day + 31 * month / 12 + year + year / 4 - year / 100 + year / 400) % 7;
-}; 
-
-console.log(weekDay2( 1979, 1, 12));
-
-// 6.Визначити, чи символ є літерою англійської abетки.
 // 7.Порахувати кількість днів у місяці (залежно від місяця та року).
+function monthDays(month)(
+    if (month.toLoverCase === )
+)
 // 8.Вивести повідомлення, якщо число більше за 100.
 // 9.Визначити, скільки років дитині (від 0 до 17 років), або дорослому.
 // 10.Визначити день тижня за номером (1-7).
