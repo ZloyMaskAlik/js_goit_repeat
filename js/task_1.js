@@ -161,6 +161,15 @@ console.log(calculateArea(10));
 // 20. Оголосити об’єкт user, який має властивості name, age, email.
 // 21. Зробити функцію updateUser, яка оновлює властивості об’єкта user.
 // 22. Оголосити змінну randomNumber і присвоїти їй випадкове число від 1 до 100.
+
+const randomNumber = () => Math.random().toFixed(2) * 100;
+ 
+console.log(randomNumber());
+console.log(randomNumber());
+console.log(randomNumber());
+console.log(randomNumber());
+console.log(randomNumber());
+
 // 23. Створити функцію isPrime, яка перевіряє, чи число — просте.
 // 24. Написати функцію capitalize, яка робить першу літеру рядка великою.
 // 25. Створити функцію calculateTip, яка обчислює чайові (процент від суми).

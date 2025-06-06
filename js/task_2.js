@@ -78,7 +78,7 @@ console.log(weekDay(`05.06.2025`));
 
 // 6.Визначити, чи символ є літерою англійської aбетки.
 function englishLetter(letter) {
-return /[a-z]i/.match(letter) ? `Your letter ${letter} is letter of english alphabet`: `Your letter ${letter} isn't letter of english alphabet`
+return letter.match(/[a-z]i/) ? `Your letter ${letter} is letter of english alphabet`: `Your letter ${letter} isn't letter of english alphabet`
 }
  
 console.log(englishLetter(`a`));
@@ -87,11 +87,56 @@ console.log(englishLetter(`9`));
 console.log(englishLetter(`а`));
 
 // 7.Порахувати кількість днів у місяці (залежно від місяця та року).
-function monthDays(month)(
-    if (month.toLoverCase === )
-)
+function monthDays(month) {
+    if (month.toLowerCase() === `january`||
+        month.toLowerCase() === `march` ||
+        month.toLowerCase() === `may` ||
+        month.toLowerCase() === `jule` ||
+        month.toLowerCase() === `august` ||
+        month.toLowerCase() === `octoder` ||
+        month.toLowerCase() === `december`) { return 'The number of days in a month is 31 days'}
+    else if (month.toLowerCase() === `february`) { return `The number of day in the month is 28 days` } else {
+        return `The number of day in the month is 30 days`;
+    };
+};
+
+console.log(monthDays(`December`));
+console.log(monthDays(`february`));
+console.log(monthDays(`june`));
+
 // 8.Вивести повідомлення, якщо число більше за 100.
+const numerisUp = numeric => numeric > 100 ? `Your number is more than a one hundred!!!` : `Your number is less than a one hundred!!!`;
+
+console.log(numerisUp(100));
+console.log(numerisUp(99));
+console.log(numerisUp(101));
+
 // 9.Визначити, скільки років дитині (від 0 до 17 років), або дорослому.
+
+const peopleAge = age => age > 17 ? `You are man` : `You are baby`;
+
+console.log(peopleAge(17));
+console.log(peopleAge(18));
+console.log(peopleAge(14));
+
+function checkAge(age) {
+    age = Number(age);
+    if (age > 18)
+    {
+        return `You are an adult`;
+    } if (age === 18)
+    {
+        return `You are child`;
+            };
+        return `You aren't an adult`;
+    };
+
+console.log(checkAge(10));
+console.log(checkAge(18));
+console.log(checkAge(33));
+    
+
+
 // 10.Визначити день тижня за номером (1-7).
 // 11.Визначити, чи є число дільником числа 100.
 // 12.Повторити кілька
@@ -99,6 +144,88 @@ function monthDays(month)(
 // 14.Визначити, яка порода тварини вказана (собака, кіт, інше).
 // 15.Визначити, чи може людина отримати знижку (залежно від віку).
 // 16.Визначити, чи можна побудувати квадрат зі сторонами, що дорівнюють заданому числу.
+//
+//  5 завдань для практики з оператором switch у JavaScript:
+// 1.Класова оцінка
+// Напишіть програму, яка приймає оцінку від 1 до 5 і виводить відповідний коментар:
+// 1: "Незадовільно"
+// 2: "Порада"
+// 3: "Задовільно"
+// 4: "Добре"
+// 5: "Відмінно"
+
+const classRating = rating => {
+    switch (rating) {
+      case 1:
+        rating = `Незадовільно`;
+        break;
+      case 2:
+        rating = `Порада`;
+        break;
+      case 3:
+        rating = `Задовільно`;
+        break;
+      case 4:
+        rating = `Добре`;
+        break;
+      case 5:
+       rating = `Відмінно`;
+        break;
+      default:
+        rating =`Занадто високий рейтинг`;
+    };
+    return rating;
+};
+
+console.log(classRating(2));
+console.log(classRating(5));
+console.log(classRating(6));
+
+//2. Визначення пори року
+// Змінна month містить назву місяця (наприклад, "січень"). Використайте switch, щоб визначити пору року:
+// "грудень", "січень", "лютий" — зима
+// "березень", "квітень", "травень" — весна
+// "червень", "липень", "серпень" — літо
+// "вересень", "жовтень", "листопад" — осінь
+
+const season = monthSeason => {
+    let month = monthSeason.toLowerCase();
+    switch (month) {
+        case `december` || `january` || `february`:
+            month = `Winter`;
+            break;
+        case `march` || `april` || `may`:
+            month = `Spring`;
+            break;
+        case "june" || "jule" || "august":
+            month = `summer`
+            break;
+        case "september" || "oktober" || "november":
+            month = `autumn`
+            break;
+        default:
+            month = `There is no such month`;                      
+    }
+    return month;
+};
+
+console.log(season(`грудень`));
+console.log(season(`ГРУДЕНЬ`));
+console.log(season(`april`));
+console.log(season(`Грудень`));
+
+
+// 3.Календар робочих днів
+// Змінна day містить день тижня ("понеділок", "субота" тощо). За допомогою switch визначте, чи є цей день робочим (понеділок-п’ятниця) або вихідним (субота-неділя). Виведіть відповідне повідомлення.
+// 4. Обчислення дня тижня за номером
+// Змінна num містить число від 1 до 7. Використайте switch, щоб вивести назву дня тижня: 1 — "Понеділок", 2 — "Вівторок", і так далі. Якщо число не в діапазоні 1-7 — виведіть "Некоректний номер дня".
+// 5.Обробка команд меню
+// Створіть змінну command з одним із значень: "start", "stop", "pause". За допомогою switch виведіть відповідне повідомлення:
+// "start" — "Запуск..."
+// "stop" — "Зупинка..."
+// "pause" — "Паузу..."
+// Якщо команда не розпізнана — "Некоректна команда".
+
 // Завдання на цикли
 // 1.Вивести всі числа від 1 до 100.
 // 2.Вивести всі парні числа в діапазоні від 1 до 50.
