@@ -134,18 +134,83 @@ function checkAge(age) {
 console.log(checkAge(10));
 console.log(checkAge(18));
 console.log(checkAge(33));
-    
-
 
 // 10.Визначити день тижня за номером (1-7).
+const weekNumberDay = numberDay => {
+    if (numberDay === 1) {
+        return `Monday`
+    };
+    if (numberDay === 2) {
+        return `Tuesday`
+    };
+    if (numberDay === 3) {
+        return `Wednesday`
+    };
+    if (numberDay === 4) {
+        return `Thursday`
+    };
+    if (numberDay === 5) {
+        return `Friday`
+    };
+    if (numberDay === 6) {
+        return `Saturday`
+    };
+    if (numberDay === 7) {
+        return `Sunday`
+    };
+    return `The number ${numberDay} is wrong number day of week`
+};
+
+console.log(weekNumberDay(3));
+console.log(weekNumberDay(8));
+console.log(weekNumberDay(1));
+console.log(weekNumberDay(5));
+
 // 11.Визначити, чи є число дільником числа 100.
+const divisorNumber = divisor => 100 % divisor === 0 ? `This number is the divisor of 100` : `This number isn't the divisor of 100`;
+console.log(divisorNumber(50));
+console.log(divisorNumber(33));
+console.log(divisorNumber(1));
+console.log(divisorNumber(25));
+console.log(divisorNumber(13));
+
+const divisorNumber2 = divisor => Boolean( 100 % divisor===0);
+
+console.log(divisorNumber2(50));
+console.log(divisorNumber2(33));
+console.log(divisorNumber2(1));
+console.log(divisorNumber2(25));
+console.log(divisorNumber2(13));
+
 // 12.Повторити кілька
 // 13.Вивести повідомлення, якщо введене число є простим.
 // 14.Визначити, яка порода тварини вказана (собака, кіт, інше).
 // 15.Визначити, чи може людина отримати знижку (залежно від віку).
+const discontAge = age => {
+    if (age <= 18) {
+        return `Your age is ${age} - your don't have any diskont`
+    };
+    if (age > 18 && age <= 35) {
+        return `Your age is ${age} - your diskont is 10%`
+    }
+    return `Your age is ${age} - your diskont is 20%`
+};
+
+console.log(discontAge(10));
+console.log(discontAge(30));
+console.log(discontAge(40));
+console.log(discontAge(33));
+
 // 16.Визначити, чи можна побудувати квадрат зі сторонами, що дорівнюють заданому числу.
+
+const figure = (height, width) => height === width ? `Figure is square` : `Figure isn't square`;
+
+console.log(figure(2, 4));
+console.log(figure(2, 2));
+console.log(figure(3, 4));
+console.log(figure(4, 4));
 //
-//  5 завдань для практики з оператором switch у JavaScript:
+//Завдання для практики з оператором switch у JavaScript:
 // 1.Класова оцінка
 // Напишіть програму, яка приймає оцінку від 1 до 5 і виводить відповідний коментар:
 // 1: "Незадовільно"
@@ -191,17 +256,25 @@ console.log(classRating(6));
 const season = monthSeason => {
     let month = monthSeason.toLowerCase();
     switch (month) {
-        case `december` || `january` || `february`:
+        case `december`:
+        case `january`:
+        case `february`:    
             month = `Winter`;
             break;
-        case `march` || `april` || `may`:
+        case `march`:
+        case `april`:   
+        case `may`:    
             month = `Spring`;
             break;
-        case "june" || "jule" || "august":
-            month = `summer`
+        case "june":
+        case "jule":
+        case "august":
+            month = `Summer`
             break;
-        case "september" || "oktober" || "november":
-            month = `autumn`
+        case "september":
+        case "oktober":
+        case "november":    
+            month = `Autumn`
             break;
         default:
             month = `There is no such month`;                      
@@ -209,22 +282,132 @@ const season = monthSeason => {
     return month;
 };
 
-console.log(season(`грудень`));
-console.log(season(`ГРУДЕНЬ`));
-console.log(season(`april`));
+console.log(season(`december`));
+console.log(season(`DECEMBER`));
+console.log(season(`April`));
 console.log(season(`Грудень`));
+console.log(season(`JUNE`));
 
 
 // 3.Календар робочих днів
-// Змінна day містить день тижня ("понеділок", "субота" тощо). За допомогою switch визначте, чи є цей день робочим (понеділок-п’ятниця) або вихідним (субота-неділя). Виведіть відповідне повідомлення.
+// Змінна day містить день тижня ("понеділок", "субота" тощо). За допомогою switch визначте, чи є цей день робочим (понеділок-п’ятниця) або вихідним (субота-неділя).
+// Виведіть відповідне повідомлення.
+const dayOfWeek = day => {
+    day = day.toLowerCase();
+    switch (day) {
+        case `monday`:
+        case `tuesday`:
+        case `wednesday`:
+        case `thursday`:
+        case `friday`:
+            day = `This day is workly`;
+            break;
+        case `saturday`:
+        case `sunday`:
+            day = `This day is weekend`;
+            break;
+    }
+    return day
+};
+
+console.log(dayOfWeek(`Friday`));
+console.log(dayOfWeek(`monday`));
+console.log(dayOfWeek(`SUNDAY`));
+console.log(dayOfWeek(`Saturday`));
+
 // 4. Обчислення дня тижня за номером
-// Змінна num містить число від 1 до 7. Використайте switch, щоб вивести назву дня тижня: 1 — "Понеділок", 2 — "Вівторок", і так далі. Якщо число не в діапазоні 1-7 — виведіть "Некоректний номер дня".
+// Змінна num містить число від 1 до 7. Використайте switch, щоб вивести назву дня тижня: 1 — "Понеділок", 2 — "Вівторок", і так далі.
+// Якщо число не в діапазоні 1-7 — виведіть "Некоректний номер дня".
+const numberDayOfWeek = number => {
+    number = Number(number);
+    switch (number) {
+        case 1:
+            number = `Moonday`;
+            break;
+        case 2:
+            number = - `Tuesday`;
+            break;
+        case 3:
+            number = ` Wednesday`;
+            break;
+        case 4:
+            number = `Thursday`;
+            break;
+        case 5:
+            number = `Friday`;
+            break;
+        case 6:
+            number = `Saturday`;
+            break;
+        case 7:
+            number = `Sunday`;
+            break;
+        default:
+            number = `Your number must be in diapason at 1 to 7`
+    }
+    return number;
+};
+
+console.log(numberDayOfWeek(1));
+console.log(numberDayOfWeek(9));
+console.log(numberDayOfWeek(4));
+console.log(numberDayOfWeek(7));
+console.log(numberDayOfWeek(10));
 // 5.Обробка команд меню
 // Створіть змінну command з одним із значень: "start", "stop", "pause". За допомогою switch виведіть відповідне повідомлення:
 // "start" — "Запуск..."
 // "stop" — "Зупинка..."
 // "pause" — "Паузу..."
 // Якщо команда не розпізнана — "Некоректна команда".
+
+const commandWord = command => {
+    command = command.toLowerCase();
+    switch (command) {
+        case `start`:
+            command = `Start the engine`;
+            break;
+        case `stop`:
+            command = `Stop the engine`;
+            break;
+        case `pause`:
+            command = `Pause the engine`;
+            break;
+        default:
+            command = `Command is incorrect`
+    };
+    return command;
+};
+
+console.log(commandWord(`start`));
+console.log(commandWord(`Start`));
+console.log(commandWord(`STOP`));
+console.log(commandWord(`Go on`));
+
+// Завдання для практики з методами рядків у JavaScript:
+
+// 1.Напиши функцію, яка приймає рядок і повертає його у верхньому регістрі, використовуючи метод toUpperCase().
+
+// 2.Створи функцію, яка видаляє пробіли з початку і кінця рядка за допомогою trim().
+// 3.Створи функцію, яка перевіряє, чи рядок починається з певної підстроки, використовуючи startsWith().
+// 4.Напиши функцію, яка перевіряє, чи рядок закінчується на певну підстроку, використовуючи endsWith().
+// 5.Створи функцію, яка ділить рядок на масив слів за допомогою split().
+// 6.Напиши функцію, яка об’єднує масив слів у один рядок через пробіл, використовуючи join().
+// 7.Створи функцію, яка знаходить позицію першого входження підрядка у рядок через indexOf().
+// 8.Напиши функцію, яка змінює першу літеру рядка на велику, використовуючи charAt() і slice().
+// 9.Створи функцію, яка видаляє всі входження певного символу з рядка за допомогою replaceAll().
+// 10.Напиши функцію, яка перевіряє, чи містить рядок певний підрядок, використовуючи includes().
+
+// Завдання з поєднанням кількох методів рядків у JavaScript:
+// 1.Напиши функцію, яка отримує рядок, видаляє пробіли з початку і кінця, перетворює його в нижній регістр і повертає перші 10 символів.
+// 2.Створи функцію, яка знаходить позицію другого входження підрядка у рядок та повертає цю позицію.
+// 3.Напиши функцію, яка перевіряє, чи починається рядок з великої літери і закінчується на знак питання, використовуючи startsWith(), endsWith(), toUpperCase().
+// 4.Створи функцію, яка змінює всі входження певного слова на інше та робить першу літеру рядка великою.
+// 5.Напиши функцію, яка отримує рядок, розділяє його на слова, і повертає кількість слів, що починаються з голосної.
+// 6.Створи функцію, яка об’єднує кілька рядків у один, але перед цим видаляє всі коми і перетворює їх у тире.
+// 7.Напиши функцію, якаfind першу позицію символу 'a', та повертає підрядок, починаючи з цієї пози до кінця.
+// 8.Створи функцію, яка приймає рядок і повертає його з усією маленькою літерою, окрім першої літери слова, яке починається з великої.
+// 9.Створи функцію, яка видаляє всі зайві пробіли і повертає довжину отриманого рядка.
+// 10.Напиши функцію, яка у рядку замінює всі входження певної підрядка на зворотній порядок і повертає новий рядок.
 
 // Завдання на цикли
 // 1.Вивести всі числа від 1 до 100.
