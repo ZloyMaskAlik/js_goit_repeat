@@ -94,20 +94,20 @@ console.log(arr4);
 // console.log(arr4);
 const arr5 = arr4.concat(`Sergiy Roga`, `Panas Nemyrniy`, arr3);
 
-console.log(arr5);
+// console.log(arr5);
 
-console.log(arr5.indexOf(`Evgen Krasyviy`));
-console.log(arr5.lastIndexOf(`Evgen Krasyviy`));
-console.log(arr5.includes(`Evgen Krasyviy`));
-console.log(arr5.includes(`Evgen Nekrasyviy`));
+// console.log(arr5.indexOf(`Evgen Krasyviy`));
+// console.log(arr5.lastIndexOf(`Evgen Krasyviy`));
+// console.log(arr5.includes(`Evgen Krasyviy`));
+// console.log(arr5.includes(`Evgen Nekrasyviy`));
 
-for (let i = 0; i < arr5.length; i++){
-console.log(arr5[i])
-};
+// for (let i = 0; i < arr5.length; i++) {
+//   console.log(arr5[i]);
+// }
 
-for (const el of arr5) {
-    console.log(el);
- };
+// for (const el of arr5) {
+//   console.log(el);
+// }
 const arrObj = [
   { id: 1, name: `Lucifer Morningstar` },
   { id: 2, name: `Evgen Krasyviy` },
@@ -115,18 +115,38 @@ const arrObj = [
   { id: 4, name: `Nataliya Svyata` },
   { id: 5, name: `Sergiy Roga` },
   { id: 6, name: `Panas Nemyrniy` },
-  { id: 7, name: `Evgen Krasyviy` }
+  { id: 7, name: `Evgen Krasyviy` },
 ];
 
-console.log(arrObj);
+// console.log(arrObj);
 
 // for (const el of arrObj) {
 //     console.log(el);
 // };
 
-for (let i = 0; i < arrObj.length; i = i + 2) { 
-    console.log(arrObj[i]);
+for (let i = 0; i < arrObj.length; i = i + 2) {
+  console.log(arrObj[i]);
+}
+
+for (const el of arrObj) {
+  console.log(el);
+}
+
+// const sum = function (numA, numB) {
+//     console.log(numA+numB)
+// }
+
+// sum (4, 5)
+
+const fn = function () {
+  total = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    total += arguments[i];
+  }
+  return total / arguments.length;
 };
+
+console.log(fn(2, 4, 6, 8));
 
 // const arrObjFind = arrObj.find()
 
@@ -137,6 +157,33 @@ console.log('\n=== ЗАДАЧИ ДЛЯ САМОСТОЯТЕЛЬНОГО РЕШЕ
 // Задача 1: Найти все нечетные числа в массиве [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 // Ожидаемый результат: [1, 3, 5, 7, 9]
 
+// function evenNumbers(numbers) {
+//   const even = [];
+//   for (let i = 0; i < numbers.length; i++) {
+//     console.log(numbers[i]);
+//     if (numbers[i] % 2 === 0) {
+//       console.log(numbers[i]);
+//       even.push(numbers[i]);
+//     }
+//   }
+//   return even;
+// }
+// console.log(evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+// const evenNumbers2 = numbers => {
+//   const even = [];
+//   for (let i = 0; i < numbers.length; i++) {
+//     console.log(numbers[i]);
+//     if (numbers[i] % 2 === 0) {
+//       console.log(numbers[i]);
+//       even.push(numbers[i]);
+//     }
+//   }
+//   return even;
+// };
+
+// console.log(evenNumbers2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
 // Задача 2: Возвести в квадрат все элементы массива [2, 4, 6, 8, 10]
 // Ожидаемый результат: [4, 16, 36, 64, 100]
 
@@ -145,6 +192,17 @@ console.log('\n=== ЗАДАЧИ ДЛЯ САМОСТОЯТЕЛЬНОГО РЕШЕ
 
 // Задача 4: Проверить, все ли элементы массива [2, 4, 6, 8, 10] четные
 // Ожидаемый результат: true
+
+// const even = numbers => {
+//   for (let i = 0; i < numbers.length; i++) {
+//     if (numbers[i] % 2 !== 0) {
+//       return false;
+//     }
+//   }
+//   return true;
+// };
+// console.log(even([2, 4, 6, 8, 10]));
+// console.log(even([2, 4, 5, 6, 8, 10]));
 
 // Задача 5: Проверить, есть ли в массиве ['apple', 'banana', 'cherry'] слово длиннее 5 символов
 // Ожидаемый результат: true
@@ -167,8 +225,33 @@ console.log('\n=== ЗАДАЧИ ДЛЯ САМОСТОЯТЕЛЬНОГО РЕШЕ
 // Задача 11: Удалить дубликаты из массива [1, 2, 2, 3, 3, 3, 4, 4, 5]
 // Ожидаемый результат: [1, 2, 3, 4, 5]
 
+// const delDublucates = numbers => {
+//   const newArr = [numbers[0]];
+//   for (let i = 1; i < numbers.length; i++) {
+//     if (!newArr.includes(numbers[i])) {
+//       newArr.push(numbers[i]);
+//     }
+//   }
+//   return newArr;
+// };
+// console.log(
+//   delDublucates([1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 8])
+// );
+
 // Задача 12: Найти второй по величине элемент в массиве [45, 67, 23, 89, 12, 156, 34]
 // Ожидаемый результат: 89
+// const secondNumber = numbers => {
+//   const arrNumbers = [numbers[0], numbers[0]];
+//   for (let i = 1; i < numbers.length; i++) {
+//     if (arrNumbers[1] < numbers[i]) {
+//       arrNumbers[0] = arrNumbers[1];
+//       arrNumbers[1] = numbers[i];
+//     }
+//   }
+//   return arrNumbers[0];
+// };
+
+// console.log(secondNumber([45, 67, 23, 89, 12, 156, 22, 34, 189]));
 
 // Задача 13: Разделить массив чисел [1, 2, 3, 4, 5, 6, 7, 8, 9] на положительные числа меньше 5 и больше или равные 5
 // Ожидаемый результат: {less: [1, 2, 3, 4], greater: [5, 6, 7, 8, 9]}
@@ -191,6 +274,19 @@ console.log('\n=== ЗАДАЧИ ДЛЯ САМОСТОЯТЕЛЬНОГО РЕШЕ
 
 // Задача 19: Разбить массив [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] на группы по 4 элемента
 // Ожидаемый результат: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+
+const arrFour = numbers => {
+  const result = [];
+  for (let i = 0; i < numbers.length; i += 4) {
+    result.push(numbers.slice(i, i + 4));
+    console.log(result);
+  }
+  return result;
+};
+
+// Тестируем функцию
+console.log('Задача 19:');
+console.log(arrFour([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]));
 
 // Задача 20: Найти сумму квадратов всех четных чисел в массиве [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 // Ожидаемый результат: 220 (2² + 4² + 6² + 8² + 10² = 4 + 16 + 36 + 64 + 100)
